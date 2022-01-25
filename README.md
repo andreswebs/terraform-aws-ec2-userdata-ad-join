@@ -15,6 +15,8 @@ Default parameter names used by the module are:
 
 The parameter names are configured from Terraform variables. (See the input values below.)
 
+The "username" and "password" parameters must contain credentials from an AD user with enough permissions to join machines to the domain.
+
 ## IAM permissions
 
 The user-data script assumes that the EC2 instance role has the proper permissions to access these parameters.
@@ -120,12 +122,12 @@ resource "aws_instance" "windows" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ad_ssm_parameter_name_dns_servers"></a> [ad\_ssm\_parameter\_name\_dns\_servers](#input\_ad\_ssm\_parameter\_name\_dns\_servers) | Name of the SSM parameter containing the AD domain controller IPs (DNS servers) | `string` | `"/dns-servers"` | no |
-| <a name="input_ad_ssm_parameter_name_domain"></a> [ad\_ssm\_parameter\_name\_domain](#input\_ad\_ssm\_parameter\_name\_domain) | Name of the SSM parameter containing the AD domain name | `string` | `"/domain"` | no |
-| <a name="input_ad_ssm_parameter_name_password"></a> [ad\_ssm\_parameter\_name\_password](#input\_ad\_ssm\_parameter\_name\_password) | Name of the SSM parameter containing the AD password | `string` | `"/password"` | no |
-| <a name="input_ad_ssm_parameter_name_username"></a> [ad\_ssm\_parameter\_name\_username](#input\_ad\_ssm\_parameter\_name\_username) | Name of the SSM parameter containing the AD username | `string` | `"/username"` | no |
+| <a name="input_ad_ssm_parameter_name_dns_servers"></a> [ad\_ssm\_parameter\_name\_dns\_servers](#input\_ad\_ssm\_parameter\_name\_dns\_servers) | Name suffix of the SSM parameter containing the AD domain controller IPs (DNS servers) | `string` | `"/dns-servers"` | no |
+| <a name="input_ad_ssm_parameter_name_domain"></a> [ad\_ssm\_parameter\_name\_domain](#input\_ad\_ssm\_parameter\_name\_domain) | Name suffix of the SSM parameter containing the AD domain name | `string` | `"/domain"` | no |
+| <a name="input_ad_ssm_parameter_name_password"></a> [ad\_ssm\_parameter\_name\_password](#input\_ad\_ssm\_parameter\_name\_password) | Name suffix of the SSM parameter containing the AD password | `string` | `"/password"` | no |
+| <a name="input_ad_ssm_parameter_name_username"></a> [ad\_ssm\_parameter\_name\_username](#input\_ad\_ssm\_parameter\_name\_username) | Name suffix of the SSM parameter containing the AD username | `string` | `"/username"` | no |
 | <a name="input_ad_ssm_prefix"></a> [ad\_ssm\_prefix](#input\_ad\_ssm\_prefix) | SSM parameter prefix for AD configurations | `string` | `"/ad"` | no |
-| <a name="input_log_group"></a> [log\_group](#input\_log\_group) | Name of the log group to log userdata output | `string` | `"/windows/boot"` | no |
+| <a name="input_log_group"></a> [log\_group](#input\_log\_group) | Name of the log group to log user-data output | `string` | `"/windows"` | no |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | Log retention in days | `number` | `30` | no |
 
 ## Modules

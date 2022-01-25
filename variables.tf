@@ -1,7 +1,7 @@
 variable "log_group" {
   type        = string
-  description = "Name of the log group to log userdata output"
-  default     = "/windows/boot"
+  description = "Name of the log group to log user-data output"
+  default     = "/windows"
 }
 
 variable "log_retention_in_days" {
@@ -18,25 +18,25 @@ variable "ad_ssm_prefix" {
 
 variable "ad_ssm_parameter_name_domain" {
   type        = string
-  description = "Name of the SSM parameter containing the AD domain name"
+  description = "Name suffix of the SSM parameter containing the AD domain name"
   default     = "/domain"
 }
 
 variable "ad_ssm_parameter_name_username" {
   type        = string
-  description = "Name of the SSM parameter containing the AD username"
+  description = "Name suffix of the SSM parameter containing the AD username"
   default     = "/username"
 }
 
 variable "ad_ssm_parameter_name_password" {
   type        = string
-  description = "Name of the SSM parameter containing the AD password"
+  description = "Name suffix of the SSM parameter containing the AD password"
   default     = "/password"
 }
 
 variable "ad_ssm_parameter_name_dns_servers" {
   type        = string
-  description = "Name of the SSM parameter containing the AD domain controller IPs (DNS servers)"
+  description = "Name suffix of the SSM parameter containing the AD domain controller IPs (DNS servers)"
   default     = "/dns-servers"
 }
 
