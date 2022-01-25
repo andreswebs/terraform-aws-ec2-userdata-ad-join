@@ -138,8 +138,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_b64"></a> [b64](#output\_b64) | n/a |
-| <a name="output_script"></a> [script](#output\_script) | n/a |
+| <a name="output_b64"></a> [b64](#output\_b64) | Base64-encoded user-data script |
+| <a name="output_script"></a> [script](#output\_script) | The user-data script |
 
 ## Providers
 

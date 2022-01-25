@@ -1,7 +1,9 @@
 output "script" {
-  value = local.userdata
+  description = "The user-data script"
+  value       = local.userdata
 }
 
 output "b64" {
-  value = base64encode(local.userdata)
+  description = "Base64-encoded user-data script"
+  value       = base64encode(local.userdata)
 }
