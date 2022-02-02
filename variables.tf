@@ -13,7 +13,7 @@ variable "log_retention_in_days" {
 variable "ad_ssm_prefix" {
   type        = string
   description = "SSM parameter prefix for AD configurations"
-  default     = "/ad"
+  default     = "/ad-join"
 }
 
 variable "ad_ssm_parameter_name_domain" {

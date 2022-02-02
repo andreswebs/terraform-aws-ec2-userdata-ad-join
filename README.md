@@ -8,10 +8,10 @@ The user-data script will fetch configuration values from SSM parameters. These 
 
 Default parameter names used by the module are:
 
-- `/ad/domain`
-- `/ad/username`
-- `/ad/password`
-- `/ad/dns-servers`
+- `/ad-join/domain`
+- `/ad-join/username`
+- `/ad-join/password`
+- `/ad-join/dns-servers`
 
 The parameter names are configured from Terraform variables. (See the input values below.)
 
@@ -73,8 +73,7 @@ module "ec2_role" {
   policies = [
     "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
     "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",
-    "arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess",
-    "arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy"
+    "arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess"
   ]
 }
 
@@ -126,7 +125,7 @@ resource "aws_instance" "windows" {
 | <a name="input_ad_ssm_parameter_name_domain"></a> [ad\_ssm\_parameter\_name\_domain](#input\_ad\_ssm\_parameter\_name\_domain) | Name suffix of the SSM parameter containing the AD domain name | `string` | `"/domain"` | no |
 | <a name="input_ad_ssm_parameter_name_password"></a> [ad\_ssm\_parameter\_name\_password](#input\_ad\_ssm\_parameter\_name\_password) | Name suffix of the SSM parameter containing the AD password | `string` | `"/password"` | no |
 | <a name="input_ad_ssm_parameter_name_username"></a> [ad\_ssm\_parameter\_name\_username](#input\_ad\_ssm\_parameter\_name\_username) | Name suffix of the SSM parameter containing the AD username | `string` | `"/username"` | no |
-| <a name="input_ad_ssm_prefix"></a> [ad\_ssm\_prefix](#input\_ad\_ssm\_prefix) | SSM parameter prefix for AD configurations | `string` | `"/ad"` | no |
+| <a name="input_ad_ssm_prefix"></a> [ad\_ssm\_prefix](#input\_ad\_ssm\_prefix) | SSM parameter prefix for AD configurations | `string` | `"/ad-join"` | no |
 | <a name="input_log_group"></a> [log\_group](#input\_log\_group) | Name of the log group to log user-data output | `string` | `"/windows"` | no |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | Log retention in days | `number` | `30` | no |
 
